@@ -29,13 +29,16 @@ public:
 	Point2D(const float&, const float&);
 	~Point2D();
 
-	std::string to_string();
+	std::string to_string() const;
 
 	void move_x(const float&);
 	void move_y(const float&);
-	float distance(const Point2D&);
-	float distance_to_zero();
-	PolarCoordinate to_polar();
+	float distance(const Point2D&) const;
+	float distance_to_zero() const;
+	PolarCoordinate to_polar() const;
+
+	float get_x() const;
+	float get_y() const;
 
 private:
 	float x;

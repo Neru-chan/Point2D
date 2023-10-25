@@ -1,16 +1,16 @@
 #include "Point2D.h"
 
-float Point2D::distance(const Point2D& other)
+float Point2D::distance(const Point2D& other) const
 {
 	return sqrt(pow(this->x - other.x, 2) + pow(this->y - other.y, 2));
 }
 
-float Point2D::distance_to_zero()
+float Point2D::distance_to_zero() const
 {
 	return distance(Point2D(0, 0));
 }
 
-PolarCoordinate Point2D::to_polar()
+PolarCoordinate Point2D::to_polar() const
 {
 	float radius = sqrt(x*x + y*y);
 	float radian = 0;
@@ -34,6 +34,16 @@ PolarCoordinate Point2D::to_polar()
 	return PolarCoordinate(radius, radian);
 }
 
+float Point2D::get_x() const
+{
+	return x;
+}
+
+float Point2D::get_y() const
+{
+	return y;
+}
+
 Point2D::Point2D() :
 	x(0),
 	y(0) {}
@@ -47,7 +57,7 @@ Point2D::~Point2D()
 
 }
 
-std::string Point2D::to_string()
+std::string Point2D::to_string() const
 {
 	return std::format("({}, {})", x, y);
 }
